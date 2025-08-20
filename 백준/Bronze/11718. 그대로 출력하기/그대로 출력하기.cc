@@ -3,27 +3,22 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <stack>
+#define endl "\n";
 
 using namespace std;
 
+string str;
 
 int main() 
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);    
+    cout.tie(NULL);          
 
-    string str;
-
-    while (true)
+    while (getline(cin, str))
     {
-        getline(cin, str);
-        if (str == "")
-        {
-            break;
-        }
-
-        cout << str << "\n";
+        cout << str << endl;
     }
 
     return 0;
