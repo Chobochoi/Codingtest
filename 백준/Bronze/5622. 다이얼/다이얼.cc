@@ -3,66 +3,29 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <stack>
+#define endl "\n";
 
 using namespace std;
 
+int a[26] = { 3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,8,9,9,9,10,10,10,10 };
+int sum;
+
+string str;
 
 int main() 
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);    
-
-    string str;
-    int result = 0;
+    cout.tie(NULL);          
 
     cin >> str;
 
-    for (char c : str)
-    {
-        if (c == 'A' || c == 'B' || c == 'C')
-        {
-            result += 3;
-        }
-
-        else if (c == 'D' || c == 'E' || c == 'F')
-        {
-            result += 4;
-        }
-
-        else if (c == 'G' || c == 'H' || c == 'I')
-        {
-            result += 5;
-        }
-
-        else if (c == 'J' || c == 'K' || c == 'L')
-        {
-            result += 6;
-        }
-
-        else if (c == 'M' || c == 'N' || c == 'O')
-        {
-            result += 7;
-        }
-
-        else if (c == 'P' || c == 'Q' || c == 'R' || c =='S')
-        {
-            result += 8;
-        }
-
-        else if (c == 'T' || c == 'U' || c == 'V')
-        {
-            result += 9;
-        }
-
-        else if (c == 'W' || c == 'X' || c == 'Y' || c == 'Z')
-        {
-            result += 10;
-        }
+    for (int i = 0; i < str.size(); i++)
+    {        
+        sum += a[str[i] - 'A'];
     }
 
-    cout << result;
-
-    return 0;  
+    cout << sum;
 }
 
