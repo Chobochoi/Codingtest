@@ -1,0 +1,14 @@
+import math
+import sys
+input = sys.stdin.readline
+
+A, C, B = map(int, input().split())
+
+num = A * B
+deno = C 
+
+gcd = math.gcd(num, deno)
+num //= gcd
+deno //= gcd
+
+print(num, deno)
