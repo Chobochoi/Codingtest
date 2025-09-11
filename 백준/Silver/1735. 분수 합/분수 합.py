@@ -22,7 +22,6 @@ num = A * (D//Min) + C * (B//Min) #분자
 
 newNum = num
 newDeno = deno
-result = 1
 
 #한번 더 최대공약수 구해서 나누기 (기약분수)
 while newDeno % newNum != 0: 
