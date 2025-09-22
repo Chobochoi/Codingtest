@@ -1,10 +1,9 @@
 def solution(phone_book):
     
-    phone_book.sort()    
-        
-    for phone1, phone2 in zip(phone_book, phone_book[1:]):
-        if phone2.startswith(phone1):
+    phone_book.sort()
+    
+    for x, y in zip(phone_book, phone_book[1:]):
+        if y.startswith(x):
             return False
+    
     return True
-        
-            
