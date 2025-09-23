@@ -1,30 +1,27 @@
 from itertools import permutations
-import math
 
-def isDecimal(num):
-    if(num <= 1):
-        return False 
-    #에라토스테네스의 체
-    for i in range(2, int(math.sqrt(num)+1)):
-        if num%i == 0:
-            return False    
-    return True
+def is_prime_number(x) :
+    if x < 2 :
+        return False
     
-def solution(numbers):
-    
-    li = list(numbers)
-    allNums = set()
-    for i in range(1, len(numbers)+1):
-        permutationList = permutations(li, i)
-        for perm in permutationList:
-            num = int(''.join(perm))
-            allNums.add(num)
-
-    
-    count = 0
-    for num in allNums:
-        #print(num)
-        if isDecimal(num):
-            count+=1
+    for i in range(2, x) :
+        if x % i == 0 :
+            return False
             
-    return count
+    return True
+
+
+def solution(numbers):
+    answer = 0
+    
+    num = []
+    
+    for i in range(1, len(numbers) + 1):
+        num.append(list(set(map(''.join, permutations(numbers, i)))))
+        
+    per = list(set(map(int, set(sum(num, [])))))
+    
+    for p in per:
+        if is_prime_number(p) == True:
+            answer += 1
+    return answer
