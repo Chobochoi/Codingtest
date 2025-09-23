@@ -1,4 +1,14 @@
-expression = input()
-parts = expression.split('-')
-result = sum(int(x) for x in parts[0].split('+')) - sum(sum(int(x) for x in part.split('+')) for part in parts[1:])
+parts = input().split('-')
+
+sum_parts = []
+
+for i in parts:
+    temp = list(map(int, i.split('+')))
+    sum_parts.append(sum(temp))
+    
+result = sum_parts[0]
+
+for i in sum_parts[1:]:
+    result -= i
+    
 print(result)
