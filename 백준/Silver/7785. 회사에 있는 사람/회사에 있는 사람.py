@@ -1,16 +1,15 @@
 N = int(input())
 
-st = {}
+dic = {}
 
 for _ in range(N):
     name, inout = map(str, input().split())
-    
     if inout == 'enter':
-        st[name] = inout 
+        dic[name] = inout
     else:
-        del st[name]    
+        del dic[name]
 
-st = sorted(st, reverse=True)
+dic = sorted(dic, reverse = True)
 
-for i in st:
+for i in dic:
     print(i)
