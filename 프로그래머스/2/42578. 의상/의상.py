@@ -1,15 +1,18 @@
 def solution(clothes):
-    dic_clothes ={}
     
+    dic = {}
+        
     for name, kind in clothes:
-        if kind in dic_clothes.keys():
-            dic_clothes[kind] += [name]
+        if kind in dic.keys():
+            dic[kind] += [name]
         else:
-            dic_clothes[kind] = [name]
+            dic[kind] = [name]
             
     answer = 1
-    for _, value in dic_clothes.items():
-        answer *= (len(value) + 1)
+    for _, y in dic.items():
+        answer *= (len(y) + 1)
         
-    return answer -1
+    return answer - 1
     
+        
+        
