@@ -1,18 +1,15 @@
-import sys
-
-input = sys.stdin.readline
-
 N = int(input())
-cnt = 0
+
+# 봉지는 3kg, 5kg 두 종류
+total = 0
 
 while N >= 0:
     if N % 5 == 0:
-        cnt += N//5
-        print(cnt)
+        total += N // 5
+        print(total)
         break
     N -= 3
-    cnt += 1
+    total += 1
     
-else:
+else: 
     print(-1)
-        
