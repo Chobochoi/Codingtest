@@ -1,19 +1,15 @@
-import sys
+y, x = map(int, input().split())
 
-input = sys.stdin.readline
+st = []
 
-N, M = map(int, input().split())
-ST = []
-
-def backtracking():
-    if len(ST) == M:
-        print(' '.join(map(str, ST)))
+def check():
+    if len(st) == x:
+        print(' '.join(map(str, st)))
         
-    for i in range(1, N+1):
-        if i not in ST:
-            ST.append(i)
-            backtracking()
-            ST.pop()
-
-backtracking()
-
+    for i in range(1, y+1):
+        if i not in st:
+            st.append(i)
+            check()
+            st.pop()
+            
+check()
