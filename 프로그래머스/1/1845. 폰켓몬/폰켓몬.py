@@ -1,16 +1,19 @@
+from itertools import combinations
+
 def solution(nums):
     
-    length = len(nums)//2
+    st = []
     
-    set_nums = set(nums)
-    list_nums = list(set_nums)
+    pick = len(nums)/2
+        
+    for num in nums:
+        if num not in st:
+            st.append(num)
+            
+    st.sort()
     
-    if len(list_nums) >= length:
-        return length
+    if len(st) >= pick:
+        return pick
     else:
-        return len(list_nums)
-    
-    
-        
-    
-        
+        return len(st)
+            
