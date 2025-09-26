@@ -2,8 +2,9 @@ def solution(phone_book):
     
     phone_book.sort()
     
-    for x, y in zip(phone_book, phone_book[1:]):
-        if y.startswith(x):
+    for start, value in zip(phone_book, phone_book[1:]):
+        if value.startswith(start):
             return False
-    
+
     return True
+    
