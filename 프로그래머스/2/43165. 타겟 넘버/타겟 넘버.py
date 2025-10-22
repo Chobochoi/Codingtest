@@ -12,6 +12,5 @@ def dfs(numbers, target, all_sum, index):
 
 def solution(numbers, target):
     
-    dfs(numbers, target, 0, 0)
-    
+    dfs(numbers, target, 0, 0)    
     return answer
