@@ -1,6 +1,5 @@
 def solution(n, times):
-    answer = 0
-    
+    answer = 0    
     start = 1
     end = n * max(times)
     
