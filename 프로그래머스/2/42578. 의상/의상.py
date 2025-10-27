@@ -11,6 +11,5 @@ def solution(clothes):
     answer = 1
     
     for _, value in dic.items():
-        answer *= (len(value) + 1)
-        
+        answer *= (len(value) + 1)        
     return answer - 1
