@@ -8,8 +8,7 @@ def solution(nums):
         
     for num in nums:
         if num not in st:
-            st.append(num)
-            
+            st.append(num)            
     st.sort()
     
     if len(st) >= pick:
