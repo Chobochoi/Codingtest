@@ -8,7 +8,6 @@ def dfs(numbers, target, all_sum, index):
     dfs(numbers, target, all_sum + numbers[index], index + 1)
     dfs(numbers, target, all_sum - numbers[index], index + 1)
 
-def solution(numbers, target):
-    
+def solution(numbers, target):    
     dfs(numbers, target, 0, 0)    
     return answer
