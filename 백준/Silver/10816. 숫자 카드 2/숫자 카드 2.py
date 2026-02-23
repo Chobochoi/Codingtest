@@ -1,23 +1,19 @@
+import sys
+import collections
+
+input = sys.stdin.readline
 
 N = int(input())
-M = list(map(int, input().split()))
+Nlist = list(map(int, input().split()))
+M = int(input())
+Mlist = list(map(int, input().split()))
 
+N_counter = collections.Counter(Nlist)
 
-n = int(input())
-m = list(map(int, input().split()))
+answer = []
 
-M.sort(reverse=True)
-
-dic = {}
-
-for x in M:
-    if x in dic:
-        dic[x] += 1
-    else:
-        dic[x] = 1
-        
-for value in m:
-    if value in dic:
-        print(dic[value], end =' ')
-    else:
-        print(0, end = ' ') 
+for m in Mlist:
+    # m(카드 번호)가 아닌, N_counter[m](카드의 개수)를 리스트에 넣습니다.
+    answer.append(N_counter[m])
+    
+print(*answer)
