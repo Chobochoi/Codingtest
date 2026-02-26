@@ -19,5 +19,5 @@ jobs:
         run: |
           git config user.name "Chobochoi"
           git config user.email "actions@github.com"
-          git remote add study https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/SooyeonJ/team_CS-Study.git
+          git remote add study https://x-access-token:${{ secrets.codingtest }}@github.com/SooyeonJ/team_CS-Study.git
           git push study main:Chobochoi --force
