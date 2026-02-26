@@ -1,0 +1,23 @@
+name: Sync to Study Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Chobochoi/Codingtest
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Push to SooyeonJ/team_CS-Study
+        run: |
+          git config user.name "Chobochoi"
+          git config user.email "actions@github.com"
+          git remote add study https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/SooyeonJ/team_CS-Study.git
+          git push study main:Chobochoi --force
