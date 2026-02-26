@@ -10,16 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Chobochoi/Codingtest
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Push to SooyeonJ/team_CS-Study
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}   # ← env로 분리!
         run: |
+          echo "Token length: ${#PAT_TOKEN}"
           git config user.name "Chobochoi"
           git config user.email "actions@github.com"
           git remote add study https://x-access-token:${PAT_TOKEN}@github.com/SooyeonJ/team_CS-Study.git
           git push study main:Chobochoi --force
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
