@@ -1,16 +1,15 @@
+#260306
 def solution(array, commands):    
     answer = []
     
     for command in commands:
-        i, j, k = command[0], command[1], command[2]
-        
-        slice = array[i-1 : j]
-        
-        slice.sort()
-        
-        answer.append(slice[k-1])
+        i, j, k = command
+    
+        sliced_array = array[i-1 : j]
+        sliced_array.sort()
+    
+        answer.append(sliced_array[k-1])
         
     return answer
-        
-        
+    
         
