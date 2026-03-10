@@ -1,35 +1,36 @@
+# 260310
+# 프로그래머스 유사 문제
 import sys
+
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
-ST = []
+st = []
 
 for i in range(N):
-    ST.append(int(input()))
+    st.append(int(input()))
+        
+st.sort()
     
-ST.sort()
-
 start = 1
-end = max(ST) - min(ST)
-
-# 1, 2, 4, 8, 9
+end = st[-1] - st[0]
 
 result = 0
 
 while start <= end:
-    total = 1
     mid = (start + end) // 2
-    current = ST[0]
-        
-    for x in range(1, len(ST)):
-        if ST[x] >= current + mid:
-            total += 1
-            current = ST[x]
+    count = 1
+    current = st[0]
+    
+    for i in range(1, len(st)):
+        if st[i] >= current + mid:
+            count += 1
+            current = st[i]
             
-    if total >= M:
+    if count >= M:
         start = mid + 1
         result = mid
     else:
-        end = mid -1
+        end = mid - 1
         
 print(result)
