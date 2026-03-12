@@ -1,30 +1,27 @@
+#260312
+from collections import deque
+
 def solution(progresses, speeds):
+    progresses = deque(progresses)
+    speeds = deque(speeds)
+    
     total_sum = []
     time = 0
-    cnt = 0
+    count = 0
     
     while len(progresses) > 0:
-        if (progresses[0] + time * speeds[0]) >= 100:
-            progresses.pop(0)
-            speeds.pop(0)
-            cnt += 1
+        if progresses[0] + time * speeds[0] >= 100:
+            progresses.popleft()
+            speeds.popleft()
+            count += 1
             
         else:
-            if cnt > 0:
-                total_sum.append(cnt)
-                cnt = 0
+            if count > 0:
+                total_sum.append(count)
+                count = 0
             time += 1
-    
-    total_sum.append(cnt)
+            
+    total_sum.append(count)
     
     return total_sum
-                    
-                    
-        
             
-    
-
-            
-            
-        
-    
