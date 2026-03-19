@@ -1,4 +1,5 @@
--- 코드를 입력하세요
-SELECT datetime as '시간'
-from animal_ins
-order by datetime desc limit 1
+#260320
+SELECT DATETIME AS '시간'
+FROM ANIMAL_INS
+ORDER BY DATETIME DESC 
+LIMIT 1
