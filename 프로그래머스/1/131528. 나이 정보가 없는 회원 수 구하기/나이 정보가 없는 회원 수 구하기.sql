@@ -1,4 +1,5 @@
--- 코드를 입력하세요
+#260324
+#커밋테스트
 SELECT COUNT(*) AS USERS
 FROM USER_INFO
 WHERE AGE IS NULL
