@@ -1,14 +1,18 @@
+#260325
 def solution(s):
-    ST = []
-    for i in s:
-        if i == '(':
-            ST.append('(')
-        else :
-            if ST == []:
-                return False
+    st = []
+    
+    for char in s:
+        if char == '(':
+            st.append(char)
+        elif char == ')':
+            if len(st) != 0:
+                st.pop()
             else:
-                ST.pop()
-                
-    return ST==[]
+                return False
+            
+    return len(st) == 0
+            
+        
         
         
