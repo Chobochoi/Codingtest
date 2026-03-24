@@ -1,3 +1,4 @@
-select count(*) as FISH_COUNT
-from fish_info
-where length is null
+#260324
+SELECT COUNT(*) AS FISH_COUNT
+FROM FISH_INFO
+WHERE LENGTH IS NULL
