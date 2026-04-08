@@ -1,27 +1,34 @@
+#260408
 from itertools import permutations
+import math
 
-def is_prime_number(x) :
-    if x < 2 :
+def is_prime(n):
+    if n < 2:
         return False
     
-    for i in range(2, x) :
-        if x % i == 0 :
+    for i in range(2, int(math.sqrt(n) + 1)):
+        if n % i == 0:
             return False
-            
+    
     return True
 
-
 def solution(numbers):
-    answer = 0
     
-    num = []
+    made_numbers = set()
     
     for i in range(1, len(numbers) + 1):
-        num.append(list(set(map(''.join, permutations(numbers, i)))))
-        
-    per = list(set(map(int, set(sum(num, [])))))
+        for p in permutations(numbers, i):
+            num = int(''.join(p))
+            made_numbers.add(num)
+            
+    answer = 0
     
-    for p in per:
-        if is_prime_number(p) == True:
+    for num in made_numbers:
+        if is_prime(num):
             answer += 1
+            
     return answer
+        
+    
+    
+    
