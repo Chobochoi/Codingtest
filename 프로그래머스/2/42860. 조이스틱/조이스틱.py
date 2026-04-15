@@ -1,16 +1,17 @@
+#260415
 def solution(name):
-    move = 0
-    cursor_move = len(name) - 1
+    answer = 0
+    n = len(name)
     
-    for i, spell in enumerate(name):
-        move += min(ord(spell) - ord('A'), ord('Z') - ord(spell) + 1)
-        
-        next = i + 1
-        
-        while next < len(name) and name[next] == 'A':
-            next += 1
-            
-        cursor_move = min([cursor_move, 2 * i + len(name) - next, i + 2 * (len(name) - next)])
-        
-    return move + cursor_move
+    min_move = n - 1 
     
+    for i, char in enumerate(name):
+        answer += min(ord(char) - ord('A'), ord('Z') - ord(char) + 1)
+        
+        next_i = i + 1
+        while next_i < n and name[next_i] == 'A':
+            next_i += 1
+                
+        min_move = min(min_move,i * 2 + n - next_i, i + 2 * (n - next_i)) 
+    
+    return answer + min_move
