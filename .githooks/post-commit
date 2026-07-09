@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Auto-runs after every local commit. If the commit touched a
+# CS-Study/YYYY-MM.md file, sync that file's content into the
+# '## 미수' section of SooyeonJ/team_CS-Study and push it.
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+
+changed_files="$(git diff-tree --no-commit-id --name-only -r HEAD)"
+matched="$(echo "$changed_files" | grep -E '^CS-Study/[0-9]{4}-[0-9]{2}\.md$' || true)"
+
+if [ -z "$matched" ]; then
+  exit 0
+fi
+
+while IFS= read -r file; do
+  echo "[post-commit] syncing $file to team_CS-Study..."
+  py "$repo_root/scripts/sync_to_team_repo.py" "$repo_root/$file" || \
+    echo "[post-commit] sync failed for $file (local commit is unaffected)"
+done <<< "$matched"
