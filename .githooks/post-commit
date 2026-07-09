@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
-# Auto-runs after every local commit. If the commit touched a
-# CS-Study/YYYY-MM.md file, sync that file's content into the
-# '## 미수' section of SooyeonJ/team_CS-Study and push it.
+# Auto-runs after every local commit.
+# 1) Always pushes the current branch to origin (Chobochoi/Codingtest).
+# 2) If the commit touched a CS-Study/YYYY-MM.md file, also syncs that
+#    file's content into the '## 미수' section of SooyeonJ/team_CS-Study.
 set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel)"
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+echo "[post-commit] pushing $current_branch to origin..."
+git push origin "$current_branch" || \
+  echo "[post-commit] push to origin failed (local commit is unaffected)"
 
 changed_files="$(git diff-tree --no-commit-id --name-only -r HEAD)"
 matched="$(echo "$changed_files" | grep -E '^CS-Study/[0-9]{4}-[0-9]{2}\.md$' || true)"
