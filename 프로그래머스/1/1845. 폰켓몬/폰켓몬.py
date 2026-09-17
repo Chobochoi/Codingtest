@@ -1,14 +1,12 @@
-# 260401
+from collections import Counter
+
 def solution(nums):
+    take = len(nums) // 2
+    collect = Counter(nums)
     
-    max_select = len(nums) // 2
+    kinds = len(collect)
     
-    kind_total = len(set(nums))
+    return min(take, kinds)
     
-    if max_select >= kind_total :
-        return kind_total
-    else:
-        return max_select
-    
-    
+
             
