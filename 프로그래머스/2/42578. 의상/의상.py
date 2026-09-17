@@ -1,22 +1,16 @@
-#260323
-def solution(clothes):
-    
-    dic = {}
-        
-    for name, kind in clothes:
-        if kind in dic:
-            dic[kind] += 1
-        else:
-            dic[kind] = 1
-            
+from collections import Counter
+
+def solution(clothes): 
     answer = 1
     
-    for num in dic.values():
-        answer *= (num + 1)
-        
-    return answer - 1
+    types = [item[1] for item in clothes]
     
+    counter = Counter(types)
+     
+    for count in counter.values():
+        answer *= (count + 1)        
     
+    return answer - 1  
             
     
         
