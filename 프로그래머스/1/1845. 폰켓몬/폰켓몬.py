@@ -1,12 +1,13 @@
-from collections import Counter
-
 def solution(nums):
-    take = len(nums) // 2
-    collect = Counter(nums)
+    max_take = len(nums)//2
     
-    kinds = len(collect)
+    arr = []
     
-    return min(take, kinds)
-    
-
+    for n in nums:
+        if n not in arr:
+            arr.append(n)
             
+    answer = min(len(arr), max_take)           
+
+    return answer
+      
