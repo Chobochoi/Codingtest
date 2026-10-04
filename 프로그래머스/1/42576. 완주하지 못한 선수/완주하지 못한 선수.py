@@ -1,7 +1,14 @@
-from collections import Counter
-
 def solution(participant, completion):
     
-    answer = Counter(participant) - Counter(completion)
+    dic = {}
     
-    return list(answer)[0]
+    for name in participant:
+        dic[name] = dic.get(name, 0) + 1
+        
+    for name in completion:
+        dic[name] = dic.get(name, 0) - 1
+        
+    for name in dic:
+        if dic[name] != 0:
+            return name
+            
