@@ -1,10 +1,11 @@
 def solution(sizes):
-    max_width = 0
-    max_height = 0
+    max_w = 0  
+    max_h = 0    
     
     for w, h in sizes:
-        # 두 변 중 긴 쪽을 width, 짧은 쪽을 height로 간주하여 최대값 갱신
-        max_width = max(max_width, max(w, h))
-        max_height = max(max_height, min(w, h))
+        big, small = max(w, h), min(w, h)
+        max_w = max(max_w, big)
+        max_h = max(max_h, small)
         
-    return max_width * max_height
+    return max_w * max_h
+        
