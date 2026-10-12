@@ -1,4 +1,3 @@
-#260413
 def solution(n, lost, reserve):
     
     real_reserve = set(reserve) - set(lost)
