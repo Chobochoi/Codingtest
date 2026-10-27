@@ -6,7 +6,6 @@ def solution(arr):
         if arr[i] != arr[i+1]:
             answer.append(arr[i])
             
-    answer.append(arr[-1])        
-    
+    answer.append(arr[-1])            
     return answer
             
